@@ -11,8 +11,8 @@ module.exports = function(app) {
 
 	app.get('/api/:friend?', function(req, res) {
 		
-		var chosen = req.params.friend;
-
+		var chosen = req.params.friend.toLowerCase();
+	
 		for (var i = 0; i < friends.length; i++) {
 
 			if (chosen == friends[i].name) {
@@ -20,12 +20,8 @@ module.exports = function(app) {
 				return;
 			} // end of if chosen is equal to a friend's name
 
-			else {
-				res.json(friends);
-			}; // end of else chosen is equal to friend's name
-
 		} // end of for loop cycling through friendArray data
-
+			
 		res.json(friends);
 		
 	}); // end of app.get api optional friend
