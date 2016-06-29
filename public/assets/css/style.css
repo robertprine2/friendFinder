@@ -25,6 +25,11 @@ input {
 	font-size: 25px;
 }
 
+#result img {
+	width: 60%;
+	
+}
+
 .Jumbotron {
 	background: url("../images/romantic.jpg") no-repeat center center fixed;
 	height: 500px;

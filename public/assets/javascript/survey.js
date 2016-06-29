@@ -74,7 +74,25 @@ function runFriendQuery(){
 
 			} // end of for loop going through friends array
 
-			console.log(result);
+			var min = 10000;
+
+			for (i = 0; i < result.length; i++) {
+
+				console.log(result[i]);
+  				min = Math.min(min, parseInt(result[i]));
+			}
+			console.log(min)
+			var match;
+
+			for (i = 0; i < result.length; i++) {
+				if (min == result[i]) {
+					match = i;
+					break;
+				} // end of if to find the right match
+			} // end of for loop through results
+			console.log(match);
+			$("#result").html("<br><p>" + friends[match].name + "</p><br>");
+			$("#result").append('<img src="' + friends[match].photo + '">');
 
 		}); // end of ajax call
 
