@@ -27,12 +27,12 @@ input {
 
 #result img {
 	width: 60%;
-	
+
 }
 
 .Jumbotron {
 	background: url("../images/romantic.jpg") no-repeat center center fixed;
-	height: 500px;
+	height: 800px;
 	-webkit-background-size: cover;
   	-moz-background-size: cover;
   	-o-background-size: cover;
@@ -44,7 +44,7 @@ input {
 	color: pink;
 	position: relative;
 	top: 150px;
-	
+	left: 400px;
 	font-weight: 900;
 	width: 50%;
 }
@@ -54,6 +54,7 @@ input {
 	color: pink;
 	position: relative;
 	top: 200px;
+	left: 200px;
 	font-weight: 800;
 	width: 50%;
 }
