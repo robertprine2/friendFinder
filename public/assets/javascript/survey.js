@@ -16,9 +16,15 @@ function runFriendQuery(){
 
 		};
 
+		// for loop to go through each question
+
 		for (i=1; i < 11; i++) {
 
+			// for loop to go through each radio in each question
+
 			for (j=1; j < 6; j++) {
+
+				// if the radio is selected then push the chosen amount to friendObj's score array
 
 				if ($("#optionsRadios" + i + "-" + j).is(":checked")) {
 
@@ -30,8 +36,6 @@ function runFriendQuery(){
 
 		} // end of for loop i
 
-		console.log(friendObj);
-
 		// Here we get the location of the root page. 
 	
 		var currentURL = window.location.origin;
@@ -39,12 +43,22 @@ function runFriendQuery(){
 		// The AJAX function uses the URL of our API to GET the data associated with it (initially set to localhost)
 		$.ajax({url: currentURL + "/api", method: "GET"}).done(function(friends) {
 
+			// store all the total differences
+
+			var result = [];
+
 			// Loop through and display each of the customers 
 			for (var i=0; i<friends.length; i++){
 
-				// logic for determining match
+				var diff = 0;
 
-				//for (var i= 0; i < friends[i].scores.length; i++)
+				// loop through each customer's score
+
+				for (var j= 0; j < friends[i].scores.length; j++) {
+
+					// compare each score with the person that just took the survey
+
+					diff += Math.abs(friendObj.scores[j] - friends[i].scores[j]);
 
 				// Show your match
 				
@@ -54,8 +68,14 @@ function runFriendQuery(){
 				// tableSection.attr('id', friends[i].id)
 				// $('#tableSection').append(tableSection);
 
-				
+				} // end of loop going through scores
+
+				result.push(diff);
+
 			} // end of for loop going through friends array
+
+			console.log(result);
+
 		}); // end of ajax call
 
 	}); // end of on click
