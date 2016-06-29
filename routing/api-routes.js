@@ -11,7 +11,7 @@ module.exports = function(app) {
 
 	app.get('/api/:friend?', function(req, res) {
 		
-		var chosen = req.params.friend.toLowerCase();
+		var chosen = req.params.friend;
 	
 		for (var i = 0; i < friends.length; i++) {
 
